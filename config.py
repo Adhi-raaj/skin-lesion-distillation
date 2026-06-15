@@ -78,7 +78,7 @@ class Config:
     # ========== NEW: KNOWLEDGE DISTILLATION CONFIG ==========
     # Knowledge Distillation settings
     USE_DISTILLATION = False    # Set True to enable distillation training
-    DISTILL_TEMPERATURE = 6.0   # Higher = softer targets
+    DISTILL_TEMPERATURE = 2.0   # Higher = softer targets
     DISTILL_ALPHA = 0.7         # Weight of KL loss (0.7 = 70% distill, 30% CE)
     TEACHER_BACKBONE = "efficientnet_b3"  # Teacher model backbone
     STUDENT_BACKBONE = "mobilenetv2_100"  # ← CHANGED (was mobilenet_v3_small)
