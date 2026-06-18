@@ -17,6 +17,18 @@ Backend API: https://skin-lesion-api-p7ga.onrender.com/
 API Documentation:
 https://skin-lesion-api-p7ga.onrender.com/docs
 
+### 🚀 Current Deployment Features
+
+✅ Real-time skin lesion classification
+
+✅ Confidence score estimation
+
+✅ Cloud-hosted inference API
+
+❌ Grad-CAM visualization (disabled in public deployment due to cloud memory constraints)
+
+✅ Full Grad-CAM support available in the research version
+
 ## 🚀 Key Contributions
 
 * Knowledge distillation from EfficientNet-B3 to lightweight MobileNet architectures.
