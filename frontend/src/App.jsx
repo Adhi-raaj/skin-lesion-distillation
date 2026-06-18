@@ -9,8 +9,6 @@ function DermAssist() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [history, setHistory] = useState([]);
-  {/*//const [gradcamImage, setGradcamImage] = useState(null);
-  //const [gradcamLoading, setGradcamLoading] = useState(false);*/}
   const fileInputRef = useRef(null);
 
   const API_URL = 'http://localhost:8000';
@@ -67,18 +65,18 @@ function DermAssist() {
     }
   };
 
-  //const handleImageChange = (e) => {
-  //  const file = e.target.files[0];
-  //  if (file) {
-  //    processFile(file);
-  //  }
-  //};
-
   const processFile = (file) => {
     if (!file.type.startsWith('image/')) {
       setError('Please select a valid image file (JPG, PNG, GIF)');
       return;
     }
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      processFile(file);
+    }
+  };  
 
     if (file.size > 10 * 1024 * 1024) {
       setError('Image size exceeds 10 MB limit');
@@ -150,43 +148,6 @@ function DermAssist() {
     }
   };
 
-
-  const handleGradCAM = async () => {
-    if (!image) return;
-
-    setGradcamLoading(true);
-
-    try {
-      const formData = new FormData();
-      formData.append("file", image);
-
-      const response = await axios.post(
-        `${API_URL}/gradcam`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      if (response.data.success) {
-        setGradcamImage(
-          `data:image/png;base64,${response.data.gradcam_image}`
-        );
-      } else {
-        setError(response.data.error || "Grad-CAM generation failed");
-      }
-
-    } catch (err) {
-      setError(
-        err.response?.data?.error ||
-        "Failed to generate Grad-CAM"
-      );
-    } finally {
-      setGradcamLoading(false);
-    }
-  };
 
   const handleReset = () => {
     setImage(null);
@@ -379,17 +340,7 @@ function DermAssist() {
                       Not for diagnostic purposes.
                     </p>
                   </div>
-                  {/*<div style={{ marginTop: "20px" }}>
-                    <button
-                      className="btn-primary"
-                      onClick={handleGradCAM}
-                      disabled={gradcamLoading}
-                    >
-                    {gradcamLoading
-                      ? "Generating Explanation..."
-                      : "Generate Explanation"}
-                    </button>
-                  </div>*/}
+                  
                 </div>
 
                 {/* PROBABILITY DISTRIBUTION */}
@@ -429,52 +380,7 @@ function DermAssist() {
           </section>
         )}
 
-        {/*{gradcamImage && (
-          <section className="derm-section">
-            <div className="section-container">
-              <div className="section-header">
-                <h2>Model Explainability</h2>
-                <p>
-                  Grad-CAM visualization showing where the
-                  MobileNetV2 model focused while making
-                  its prediction.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "24px"
-                }}
-              >
-                <div>
-                  <h3>Original Image</h3>
-                  <img
-                    src={preview}
-                    alt="Original"
-                    style={{
-                      width: "100%",
-                      borderRadius: "12px"
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <h3>Grad-CAM Overlay</h3>
-                  <img
-                    src={gradcamImage}
-                    alt="GradCAM"
-                    style={{
-                      width: "100%",
-                      borderRadius: "12px"
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-        )}*/}
+        
 
         {/* LESION TYPES SECTION */}
         <section id="classes" className="derm-section classes-section">

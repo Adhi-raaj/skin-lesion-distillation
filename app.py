@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import onnxruntime as ort
-from gradcam_service import GradCAMService
+
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
