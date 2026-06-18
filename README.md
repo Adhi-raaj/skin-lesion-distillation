@@ -1,4 +1,4 @@
-# Efficient and Reliable Skin Lesion Classification for Mobile Deployment using Knowledge Distillation
+# 🩺 Efficient and Reliable Skin Lesion Classification for Mobile Deployment using Knowledge Distillation
 
 ## Overview
 
@@ -8,7 +8,16 @@ This project investigates whether knowledge distillation can be used to transfer
 
 ---
 
-## Key Contributions
+## 🌐 Live Application 
+
+Frontend: https://skin-lesion-distillation.vercel.app/
+
+Backend API: https://skin-lesion-api-p7ga.onrender.com/
+
+API Documentation:
+https://skin-lesion-api-p7ga.onrender.com/docs
+
+## 🚀 Key Contributions
 
 * Knowledge distillation from EfficientNet-B3 to lightweight MobileNet architectures.
 * Deployment-oriented evaluation including latency, VRAM usage, and model size.
@@ -19,7 +28,7 @@ This project investigates whether knowledge distillation can be used to transfer
 
 ---
 
-## Dataset
+## 📊 Dataset
 
 ### HAM10000
 
@@ -45,7 +54,7 @@ Datasets are not included in this repository and must be downloaded separately.
 
 ---
 
-## Model Architecture
+## 🧠 Model Architecture
 
 ### Teacher Model
 
@@ -65,7 +74,7 @@ Knowledge transfer is performed using a combination of:
 
 ---
 
-## Best Student Model (MobileNetV2, T = 2)
+## 🏆 Best Student Model (MobileNetV2, T = 2)
 
 | Metric            | Value   |
 | ----------------- | ------- |
@@ -89,7 +98,7 @@ Knowledge transfer is performed using a combination of:
 
 ---
 
-## Temperature Ablation Study
+## 🔬 Temperature Ablation Study
 
 | Temperature | Validation Accuracy |
 | ----------- | ------------------- |
@@ -101,7 +110,7 @@ The best performance was obtained using a distillation temperature of T = 2.
 
 ---
 
-## Calibration Analysis
+## 📏 Calibration Analysis
 
 | Model             | ECE    |
 | ----------------- | ------ |
@@ -112,7 +121,7 @@ The distilled model remained well calibrated despite significant compression.
 
 ---
 
-## External Validation (PH2)
+## 🌍 External Validation (PH2)
 
 The best distilled MobileNetV2 model was evaluated on the external PH2 dataset without any additional training or fine-tuning.
 
