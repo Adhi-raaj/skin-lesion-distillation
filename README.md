@@ -168,6 +168,18 @@ Key observations:
 
 ---
 
+## ⚠️ Grad-CAM in the Live Application
+
+Grad-CAM based explainability was successfully implemented and validated during the development and research phases of this project using the distilled MobileNetV2 model.
+
+The public web application currently focuses on lightweight ONNX-based inference for efficient deployment on free cloud infrastructure. The free hosting environment provides limited memory resources (512 MB RAM), which are sufficient for real-time classification but insufficient for simultaneously loading the PyTorch-based Grad-CAM pipeline alongside the deployed inference model.
+
+To ensure reliable and responsive predictions for all users, the production deployment uses the optimized ONNX model for classification while Grad-CAM analysis remains available in the local research environment.
+
+Future deployments on higher-memory infrastructure will re-enable real-time Grad-CAM visualization within the web application.
+
+---
+
 ## Repository Structure
 
 ```text
