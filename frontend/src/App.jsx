@@ -9,8 +9,8 @@ function DermAssist() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [history, setHistory] = useState([]);
-  const [gradcamImage, setGradcamImage] = useState(null);
-  const [gradcamLoading, setGradcamLoading] = useState(false);
+  {/*//const [gradcamImage, setGradcamImage] = useState(null);
+  //const [gradcamLoading, setGradcamLoading] = useState(false);*/}
   const fileInputRef = useRef(null);
 
   const API_URL = 'http://localhost:8000';
@@ -67,12 +67,12 @@ function DermAssist() {
     }
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      processFile(file);
-    }
-  };
+  //const handleImageChange = (e) => {
+  //  const file = e.target.files[0];
+  //  if (file) {
+  //    processFile(file);
+  //  }
+  //};
 
   const processFile = (file) => {
     if (!file.type.startsWith('image/')) {
@@ -379,7 +379,7 @@ function DermAssist() {
                       Not for diagnostic purposes.
                     </p>
                   </div>
-                  <div style={{ marginTop: "20px" }}>
+                  {/*<div style={{ marginTop: "20px" }}>
                     <button
                       className="btn-primary"
                       onClick={handleGradCAM}
@@ -389,7 +389,7 @@ function DermAssist() {
                       ? "Generating Explanation..."
                       : "Generate Explanation"}
                     </button>
-                  </div>
+                  </div>*/}
                 </div>
 
                 {/* PROBABILITY DISTRIBUTION */}
@@ -429,7 +429,7 @@ function DermAssist() {
           </section>
         )}
 
-        {gradcamImage && (
+        {/*{gradcamImage && (
           <section className="derm-section">
             <div className="section-container">
               <div className="section-header">
@@ -474,7 +474,7 @@ function DermAssist() {
               </div>
             </div>
           </section>
-        )}
+        )}*/}
 
         {/* LESION TYPES SECTION */}
         <section id="classes" className="derm-section classes-section">

@@ -233,7 +233,7 @@ async def predict(file: UploadFile = File(...)):
             status_code=500,
             detail=f"Prediction failed: {str(e)}"
         )
-
+'''
 @app.post("/gradcam")
 async def generate_gradcam(file: UploadFile = File(...)):
     try:
@@ -253,7 +253,7 @@ async def generate_gradcam(file: UploadFile = File(...)):
             "success": False,
             "error": str(e)
         }
-
+'''
 # Batch prediction endpoint (optional, for future use)
 @app.post("/predict-batch")
 async def predict_batch(files: list[UploadFile] = File(...)):
@@ -390,9 +390,9 @@ async def startup_event():
     else:
         logger.info("✓ All systems operational")
 
-    global gradcam_service
-    gradcam_service = GradCAMService()
-    logger.info("✓ Grad-CAM model loaded successfully")
+    #global gradcam_service
+    #gradcam_service = GradCAMService()
+    #logger.info("✓ Grad-CAM model loaded successfully")
 
 # Shutdown event
 @app.on_event("shutdown")
