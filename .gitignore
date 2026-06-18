@@ -19,3 +19,7 @@ gradcamresults/
 .idea/
 
 .DS_Store
+
+!checkpoints/
+!checkpoints/distill_T2/
+!checkpoints/distill_T2/student_mobilenetv2_100_best.pth
