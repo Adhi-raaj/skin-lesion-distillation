@@ -10,8 +10,7 @@ function DermAssist() {
   const [error, setError] = useState(null);
   const [history, setHistory] = useState([]);
   const fileInputRef = useRef(null);
-
-  const API_URL = 'http://localhost:8000';
+  const API_URL = 'https://skin-lesion-api-p7ga.onrender.com';;
 
   const classMetadata = {
     akiec: {
@@ -66,30 +65,25 @@ function DermAssist() {
   };
 
   const processFile = (file) => {
-    if (!file.type.startsWith('image/')) {
-      setError('Please select a valid image file (JPG, PNG, GIF)');
-      return;
-    }
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      processFile(file);
-    }
-  };  
-
     if (file.size > 10 * 1024 * 1024) {
       setError('Image size exceeds 10 MB limit');
       return;
     }
-
     setImage(file);
     setError(null);
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreview(reader.result);
     };
+
     reader.readAsDataURL(file);
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      processFile(file);
+    }
   };
 
   const handleDragOver = (e) => {
@@ -124,7 +118,7 @@ function DermAssist() {
       const formData = new FormData();
       formData.append('file', image);
 
-      const response = await axios.post(`${API_URL}/predict`, formData, {
+      const response = await axios.post("https://skin-lesion-api-p7ga.onrender.com/predict", formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
